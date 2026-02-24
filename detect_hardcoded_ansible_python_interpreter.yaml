@@ -1,0 +1,7 @@
+# Skill Definition: detect_hardcoded_ansible_python_interpreter
+name: detect_hardcoded_ansible_python_interpreter
+description: Flags any ansible_python_interpreter assignment that is a string literal (not a variable or group_var).
+remediation:
+  - recommend_inventory_or_group_var
+output:
+  summary_files_to_change: true  # At end, list files needing change
