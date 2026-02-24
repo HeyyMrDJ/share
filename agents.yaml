@@ -1,0 +1,16 @@
+# OpenCode agents configuration file
+# Defines which agents and skills are active for this workspace
+# Expand agents and skills below as needed
+
+agents:
+  - name: migrate_ansible  # Agent for migration tasks (e.g., interpreter refactor, legacy fixes)
+    enabled: true
+    description: Migrates Ansible playbooks by applying current and future migration skills.
+    skills:
+      - detect_hardcoded_ansible_python_interpreter  # Check for hardcoded python interpreter
+      - ensure_task_has_comment  # Ensure each Ansible task has a comment above it
+        # For each Ansible task, check if there is a comment immediately above it. If not, flag it and suggest an appropriate comment.
+        # Use LLM reasoning to interpret task context and generate meaningful comments as needed.
+    scan_patterns:
+      - "**/*.yml"
+      - "**/*.yaml"
