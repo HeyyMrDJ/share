@@ -1,0 +1,12 @@
+# Skill Definition: ensure_task_has_comment
+name: ensure_task_has_comment
+description: |-
+  For each Ansible task in every playbook file and role, check if there is a comment immediately above the task definition (i.e., above the '- name:' line).
+  Every role should have comments explaining the purpose of each task for better maintainability. If a task is missing a comment, flag it and suggest a meaningful comment based on the task's context and intent. Comments should help explain the purpose of each task for future maintainers.
+  Every Playbook should have comments explaining the purpose of each task for better maintainability.
+  If missing, suggest a meaningful comment based on task context and intent. Comments should help explain the purpose of each task for future maintainers.
+remediation:
+  - flag_tasks_without_comments
+  - suggest_contextual_comment
+output:
+  summary_files_to_change: true  # At end, list files needing comment additions
